@@ -1,0 +1,99 @@
+💻 1. Check If Java Is Already Installed
+Before installing, check if Java is already on your system:
+
+Windows / Mac / Linux Terminal Command:
+nginx
+Copy
+Edit
+java -version
+If Java is installed, you'll see the version number. If not, follow the steps below.
+
+🔽 2. Download Java Development Kit (JDK)
+Go to the official Oracle JDK download page or use an open-source version like Adoptium.
+Choose the correct version for your operating system:
+Windows (.exe)
+macOS (.dmg)
+Linux (.tar.gz)
+I recommend downloading the latest Long-Term Support (LTS) version for stability.
+
+🏗️ 3. Install Java on Your System
+🔵 On Windows:
+Run the downloaded .exe file.
+Follow the setup wizard and note the installation path (usually C:\Program Files\Java\jdk-version).
+Set up environment variables:
+Search "Environment Variables" in Windows search.
+Click "Environment Variables..." under System Properties.
+Under System Variables, click New and add:
+Variable name: JAVA_HOME
+Variable value: C:\Program Files\Java\jdk-version
+Add %JAVA_HOME%\bin to the Path variable.
+🍏 On macOS:
+Open the .dmg file and follow the installation steps.
+Add Java to your PATH:
+Open Terminal and run:
+bash
+Copy
+Edit
+sudo nano /etc/paths
+Add this line (replace version as needed):
+swift
+Copy
+Edit
+/Library/Java/JavaVirtualMachines/jdk-version/Contents/Home/bin
+Save and close (Ctrl + X, then Y, then Enter).
+🐧 On Linux (Ubuntu):
+Update packages:
+sql
+Copy
+Edit
+sudo apt update
+Install Java:
+nginx
+Copy
+Edit
+sudo apt install openjdk-17-jdk
+Verify installation:
+nginx
+Copy
+Edit
+java -version
+✅ 4. Verify the Java Installation
+Run this command in your terminal or command prompt:
+
+nginx
+Copy
+Edit
+java -version
+You should see output showing the installed Java version.
+
+🔧 5. Set Up a Code Editor or IDE
+Install an IDE for writing and running Java code easily:
+
+IntelliJ IDEA (Highly recommended for beginners)
+Eclipse (Great for large projects)
+Visual Studio Code (Lightweight with Java extensions)
+🚀 6. Write and Run Your First Java Program
+Try running a simple Java program to confirm everything works:
+
+Create a new file called HelloWorld.java.
+Paste this code:
+java
+Copy
+Edit
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Java is successfully set up!");
+    }
+}
+Open terminal/command prompt, navigate to the file location, and run:
+nginx
+Copy
+Edit
+javac HelloWorld.java
+java HelloWorld
+If everything is set up correctly, you should see:
+
+csharp
+Copy
+Edit
+Java is successfully set up!
