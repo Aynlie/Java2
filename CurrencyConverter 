@@ -1,0 +1,83 @@
+mport java.util.HashMap;
+import java.util.Scanner;
+
+public class CurrencyConverter {
+    protected String currencyCode;
+    protected double amount;
+    protected HashMap<String, Double> exchangeRates;
+    protected  String bannerString = "Welcome to Currency Converter!";
+
+    public CurrencyConverter() {
+        initializeExchangeRates();
+    }
+    
+    public CurrencyConverter(String currencyCode, double amount) {
+        this();
+        this.currencyCode = currencyCode;
+        this.amount = amount;
+    }
+
+    private void initializeExchangeRates() {
+        exchangeRates = new HashMap<>();
+        exchangeRates.put("USD", 56.00);
+        exchangeRates.put("EUR", 61.00);
+        exchangeRates.put("JPY", 0.40);
+        exchangeRates.put("GBP", 70.00);
+        exchangeRates.put("AUD", 37.00);
+    }
+
+    public void setCurrencyCode(String currencyCode) {
+        this.currencyCode = currencyCode;
+    }
+    
+    public String getCurrencyCode() {
+        return currencyCode;
+    }
+    
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+    
+    public double getAmount() {
+        return amount;
+    }
+    
+    public void convert() {
+        if (!exchangeRates.containsKey(currencyCode)) {
+            System.out.println("Invalid currency code.");
+            return;
+        }
+        double convertedAmount = amount * exchangeRates.get(currencyCode);
+        System.out.printf("%.2f %s is equivalent to %.2f PHP\n", amount, currencyCode, convertedAmount);
+    }
+
+    private void banner() {
+        System.out.println(bannerString);
+    }
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to Currency Converter!");
+        System.out.println("Supported Currencies: USD, EUR, JPY, GBP, AUD");
+
+        while (true) {
+            System.out.print("Enter currency code (or type 'exit' to quit): ");
+            String currencyCode = scanner.nextLine().toUpperCase();
+            
+            if (currencyCode.equals("EXIT")) {
+                System.out.println("Exiting program. Goodbye!");
+                break;
+            }
+            
+            System.out.print("Enter amount: ");
+            try {
+                double amount = Double.parseDouble(scanner.nextLine());
+                CurrencyConverter converter = new CurrencyConverter(currencyCode, amount);
+                converter.convert();
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid amount. Please enter a valid number.");
+            }
+        }
+        scanner.close();
+    }
+}
